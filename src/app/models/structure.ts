@@ -1,6 +1,7 @@
 import { ICost } from "./cost";
+import {IModel} from './model';
 
-export interface IStructure {
+export interface IStructure extends IModel {
     id: number;
     name: string;
     description: string;

@@ -1,6 +1,7 @@
 import { ICost } from "./cost";
+import {IModel} from './model';
 
-export interface IUnit {
+export interface IUnit extends IModel {
     id: number;
     name: string;
     expansion: string;

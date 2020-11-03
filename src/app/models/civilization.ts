@@ -1,4 +1,6 @@
-export interface ICivilization {
+import {IModel} from './model';
+
+export interface ICivilization extends IModel {
     id: number;
     name: string;
     expansion: string;

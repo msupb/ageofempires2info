@@ -10,23 +10,42 @@ import {
   Route,
 } from "react-router-dom";
 import CusButton from './components/elements/button/cusButton';
+import ListComponent from './components/list/listComponent';
+import { ICivilization } from './models/civilization';
 
-class App extends Component {
+interface IState {
+  civilizations: Array<ICivilization>;
+}
 
+class App extends Component<{}, IState> {
+
+  constructor(props: {}, state: IState) {
+    super(props);
+
+    this.state = {
+      civilizations: []
+    };
+  }
+  
   async componentDidMount() {
 
-    const data: Array<IStructure> = await HttpService.get('unit', 8);
+    const data: Array<ICivilization> = await HttpService.getList('civilizations');
 
     if(data) {
         console.log(data);
+
+        this.setState(({
+          civilizations: data
+      }));
     }
   }
 
-  public testClick(): void {
+  protected testClick(): void {
     console.log("Test click");
   }
 
   render() {
+    console.log(this.state.civilizations);
     return (
       <Fragment>
         <Router>
@@ -36,7 +55,8 @@ class App extends Component {
           <Switch>
               <Route path="/home" render={() => (<div className="container"><h1>Home</h1><CusButton btnType={'button'} btnText={'TEST BUTTON'} onClickMethod={this.testClick}></CusButton></div>)}>
               </Route>
-              <Route path="/civilizations" render={() => (<div className="container"><h1>Civilizations</h1></div>)}>
+              <Route path="/civilizations">
+                <ListComponent itemList={this.state.civilizations}></ListComponent>
               </Route>
               <Route path="/units" render={() => (<div className="container"><h1>Units</h1></div>)}>
               </Route>

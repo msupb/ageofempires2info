@@ -7,8 +7,7 @@ interface INavBarProps {
     linkClass: string;
 }
 
-const NavBar: React.FC<INavBarProps> = (props) => {
-    console.log(props);
+const NavBar = (props: INavBarProps) => {
     return (
         <nav className={props.navClass}>
             {props.paths.map((path) => <Link key={path} className={props.linkClass} to={'/' + path}>{path}</Link>)}

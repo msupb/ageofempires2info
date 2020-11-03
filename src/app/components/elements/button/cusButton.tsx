@@ -6,7 +6,7 @@ interface IButtonProps {
     btnText: string;
 }
 
-const CusButton: React.FC<IButtonProps> = (props) => {
+const CusButton = (props: IButtonProps) => {
     return (
         <button type={props.btnType} onClick={() => props.onClickMethod()}>{props.btnText}</button>
     )
