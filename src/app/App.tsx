@@ -9,6 +9,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import CusButton from './components/elements/button/cusButton';
 
 class App extends Component {
 
@@ -21,6 +22,10 @@ class App extends Component {
     }
   }
 
+  public testClick(): void {
+    console.log("Test click");
+  }
+
   render() {
     return (
       <Fragment>
@@ -29,7 +34,7 @@ class App extends Component {
             <NavBar navClass="navbar navbar-expand-lg navbar-light bg-light" linkClass="nav-item nav-link" paths={['home', 'civilizations', 'units', 'technologies']}></NavBar>
           </div>
           <Switch>
-              <Route path="/home" render={() => (<div className="container"><h1>Home</h1></div>)}>
+              <Route path="/home" render={() => (<div className="container"><h1>Home</h1><CusButton btnType={'button'} btnText={'TEST BUTTON'} onClickMethod={this.testClick}></CusButton></div>)}>
               </Route>
               <Route path="/civilizations" render={() => (<div className="container"><h1>Civilizations</h1></div>)}>
               </Route>
