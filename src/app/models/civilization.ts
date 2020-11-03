@@ -1,8 +1,6 @@
-import {IModel} from './model';
+import {IModelBase} from './modelBase';
 
-export interface ICivilization extends IModel {
-    id: number;
-    name: string;
+export interface ICivilization extends IModelBase {
     expansion: string;
     army_type: string;
     unique_unit: Array<string>;

@@ -12,9 +12,12 @@ import {
 import CusButton from './components/elements/button/cusButton';
 import ListComponent from './components/list/listComponent';
 import { ICivilization } from './models/civilization';
+import { ITechnology } from './models/technology'
 
 interface IState {
   civilizations: Array<ICivilization>;
+  units: Array<IUnit>;
+  technologies: Array<ITechnology>;
 }
 
 class App extends Component<{}, IState> {
@@ -23,21 +26,38 @@ class App extends Component<{}, IState> {
     super(props);
 
     this.state = {
-      civilizations: []
+      civilizations: [],
+      units: [],
+      technologies: [],
     };
   }
   
   async componentDidMount() {
 
-    const data: Array<ICivilization> = await HttpService.getList('civilizations');
+    // For testing, refactor this
 
-    if(data) {
-        console.log(data);
+    const civPromise = new Promise<Array<ICivilization>>(async (resolve, reject) => {
+      resolve(await HttpService.getList('civilizations'));
+    });
 
+    const unitPromise = new Promise<Array<IUnit>>(async (resolve, reject) => {
+      resolve(await HttpService.getList('units'));
+    });
+
+    const techPromise = new Promise<Array<ITechnology>>(async (resolve, reject) => {
+      resolve(await HttpService.getList('technologies'));
+    });
+
+    await Promise.all([civPromise, unitPromise, techPromise]).then((data) => {
+      if(data) {
         this.setState(({
-          civilizations: data
-      }));
-    }
+            civilizations: data[0],
+            units: data[1],
+            technologies: data[2]
+        }));
+        console.log('ALL RESOLVED AND STORED IN STATE', this.state);
+      }
+    }).catch((err) => console.log(err));
   }
 
   protected testClick(): void {
@@ -45,7 +65,6 @@ class App extends Component<{}, IState> {
   }
 
   render() {
-    console.log(this.state.civilizations);
     return (
       <Fragment>
         <Router>
@@ -58,9 +77,11 @@ class App extends Component<{}, IState> {
               <Route path="/civilizations">
                 <ListComponent itemList={this.state.civilizations}></ListComponent>
               </Route>
-              <Route path="/units" render={() => (<div className="container"><h1>Units</h1></div>)}>
+              <Route path="/units">
+                <ListComponent itemList={this.state.units}></ListComponent>
               </Route>
-              <Route path="/technologies" render={() => (<div className="container"><h1>Technologies</h1></div>)}>
+              <Route path="/technologies">
+                <ListComponent itemList={this.state.technologies}></ListComponent>
               </Route>
             </Switch>
         </Router>

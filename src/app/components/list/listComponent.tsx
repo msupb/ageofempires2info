@@ -1,11 +1,11 @@
 import React from 'react';
-import { IModel } from '../../models/model';
+import { IModelBase } from '../../models/modelBase';
 
 interface IListProps<T> {
     itemList: Array<T>;
 }
 
-const ListComponent = <T extends IModel>(props: IListProps<T>) => {
+const ListComponent = <T extends IModelBase>(props: IListProps<T>) => {
     console.log(props.itemList);
     return(
         <div>
