@@ -54,9 +54,9 @@ class App extends Component<{}, IState> {
     await Promise.all([civPromise, unitPromise, techPromise]).then((data) => {
       if(data) {
         this.setState(({
-            civilizations: ListFactory.GetDictionary(data[0], 'civilizations'),
-            units: ListFactory.GetDictionary(data[1], 'units'),
-            technologies: ListFactory.GetDictionary(data[2], 'technologies'),
+            civilizations: ListFactory.GetList(data[0], 'civilizations'),
+            units: ListFactory.GetList(data[1], 'units'),
+            technologies: ListFactory.GetList(data[2], 'technologies'),
             isLoading: false
         }));
 
