@@ -14,6 +14,7 @@ import ListComponent from './components/list/listComponent';
 import { ICivilization } from './models/civilization';
 import { ITechnology } from './models/technology';
 import ListFactory from './services/listFactory';
+import DetailsComponent from './components/details/detailsComponent';
 
 interface IState {
   civilizations: Array<ICivilization>;
@@ -74,20 +75,27 @@ class App extends Component<{}, IState> {
     return (
       <Fragment>
         <Router>
-          <div className="container">
-            <NavBar navClass="navbar navbar-expand-lg navbar-light bg-light" linkClass="nav-item nav-link" paths={['home', 'civilizations', 'units', 'technologies']}></NavBar>
-          </div>
+        <NavBar navClass="navbar navbar-expand-lg navbar-light bg-light" linkClass="nav-item nav-link" paths={['home', 'civilizations', 'units', 'technologies']}></NavBar>
           <Switch>
               <Route path="/home" render={() => (<div className="container"><h1>Home</h1><CusButton btnType={'button'} btnText={'TEST BUTTON'} onClickMethod={this.testClick}></CusButton></div>)}>
               </Route>
               <Route path="/civilizations">
-                <ListComponent itemList={this.state.civilizations}></ListComponent>
+                <div className="container">
+                  <ListComponent itemList={this.state.civilizations}></ListComponent>
+                </div>   
               </Route>
               <Route path="/units">
-                <ListComponent itemList={this.state.units}></ListComponent>
+                <div className="container">
+                  <ListComponent itemList={this.state.units}></ListComponent>
+                </div>     
               </Route>
               <Route path="/technologies">
-                <ListComponent itemList={this.state.technologies}></ListComponent>
+                <div className="container">
+                  <ListComponent itemList={this.state.technologies}></ListComponent>
+                </div>  
+              </Route>
+              <Route path="/details">
+                <DetailsComponent></DetailsComponent>
               </Route>
             </Switch>
         </Router>
