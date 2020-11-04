@@ -12,12 +12,14 @@ import {
 import CusButton from './components/elements/button/cusButton';
 import ListComponent from './components/list/listComponent';
 import { ICivilization } from './models/civilization';
-import { ITechnology } from './models/technology'
+import { ITechnology } from './models/technology';
+import ListFactory from './services/listFactory';
 
 interface IState {
   civilizations: Array<ICivilization>;
   units: Array<IUnit>;
   technologies: Array<ITechnology>;
+  isLoading: boolean;
 }
 
 class App extends Component<{}, IState> {
@@ -29,6 +31,7 @@ class App extends Component<{}, IState> {
       civilizations: [],
       units: [],
       technologies: [],
+      isLoading: true,
     };
   }
   
@@ -51,11 +54,14 @@ class App extends Component<{}, IState> {
     await Promise.all([civPromise, unitPromise, techPromise]).then((data) => {
       if(data) {
         this.setState(({
-            civilizations: data[0],
-            units: data[1],
-            technologies: data[2]
+            civilizations: ListFactory.GetDictionary(data[0], 'civilizations'),
+            units: ListFactory.GetDictionary(data[1], 'units'),
+            technologies: ListFactory.GetDictionary(data[2], 'technologies'),
+            isLoading: false
         }));
+
         console.log('ALL RESOLVED AND STORED IN STATE', this.state);
+
       }
     }).catch((err) => console.log(err));
   }

@@ -10,7 +10,7 @@ const ListComponent = <T extends IModelBase>(props: IListProps<T>) => {
     return(
         <div>
             <h1>List</h1>
-            {props.itemList.map((item) => (<p key={item.id}>{item.name}</p>))}
+            {props.itemList.map((value) => (<p key={value.localId}>Name: {value.name}, Local: {value.localId}, Category: {value.category}</p>))}
         </div>
     )
 }
