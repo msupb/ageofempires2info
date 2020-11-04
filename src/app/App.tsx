@@ -15,6 +15,8 @@ import { ICivilization } from './models/civilization';
 import { ITechnology } from './models/technology';
 import ListFactory from './services/listFactory';
 import DetailsComponent from './components/details/detailsComponent';
+import EmitDetailsContext from './services/contexts/emitDetailsContext';
+import { IModelBase } from './models/modelBase';
 
 interface IState {
   civilizations: Array<ICivilization>;
@@ -68,7 +70,11 @@ class App extends Component<{}, IState> {
   }
 
   protected testClick(): void {
-    console.log("Test click");
+    console.log('testClick');
+  }
+
+  protected onDetailsClick(item: IModelBase): void {
+    console.log("DETAILS", item);
   }
 
   render() {
@@ -79,21 +85,23 @@ class App extends Component<{}, IState> {
           <Switch>
               <Route path="/home" render={() => (<div className="container"><h1>Home</h1><CusButton btnType={'button'} btnText={'TEST BUTTON'} onClickMethod={this.testClick}></CusButton></div>)}>
               </Route>
-              <Route path="/civilizations">
-                <div className="container">
-                  <ListComponent itemList={this.state.civilizations}></ListComponent>
-                </div>   
-              </Route>
-              <Route path="/units">
-                <div className="container">
-                  <ListComponent itemList={this.state.units}></ListComponent>
-                </div>     
-              </Route>
-              <Route path="/technologies">
-                <div className="container">
-                  <ListComponent itemList={this.state.technologies}></ListComponent>
-                </div>  
-              </Route>
+              <EmitDetailsContext.Provider value={{clickMethod: this.onDetailsClick}}>
+                <Route path="/civilizations">
+                  <div className="container">
+                    <ListComponent itemList={this.state.civilizations}></ListComponent>
+                  </div>   
+                </Route>
+                <Route path="/units">
+                  <div className="container">
+                    <ListComponent itemList={this.state.units}></ListComponent>
+                  </div>     
+                </Route>
+                <Route path="/technologies">
+                  <div className="container">
+                    <ListComponent itemList={this.state.technologies}></ListComponent>
+                  </div>  
+                </Route>
+              </EmitDetailsContext.Provider>      
               <Route path="/details">
                 <DetailsComponent></DetailsComponent>
               </Route>
