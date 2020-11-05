@@ -16,7 +16,7 @@ const ListItem = <T extends IModelBase>(props: IListItemProps<T>) => {
         <div className={props.className}>
             <h4>{props.item.name}</h4>
                 <span className='button-span'>
-                    <Link to={"/details"}>
+                    <Link to={`/details/${props.item.category}/${props.item.id}`}>
                         <EmitDetailsContext.Consumer>
                             {(value) => <CusButton btnType={'button'} btnText={strings.details} onClickMethod={() => value?.clickMethod(props.item)}></CusButton> }       
                         </EmitDetailsContext.Consumer>

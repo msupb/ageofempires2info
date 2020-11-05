@@ -13,7 +13,7 @@ import ListComponent from './components/list/listComponent';
 import { ICivilization } from './models/civilization';
 import { ITechnology } from './models/technology';
 import ListFactory from './services/listFactory';
-import DetailsComponent from './components/details/detailsComponent';
+import DetailsFactoryComponent from './components/details/detailsFactoryComponent';
 import EmitDetailsContext from './services/contexts/emitDetailsContext';
 import { IModelBase } from './models/modelBase';
 import Strings from './services/strings';
@@ -117,9 +117,9 @@ class App extends Component<{}, IState> {
             <Switch>
                 <Route path="/home" render={() => (<div className="container"><h1>Home</h1><CusButton btnType={'button'} btnText={'TEST BUTTON'} onClickMethod={this.testClick}></CusButton></div>)}>
                 </Route>
-                <Route path="/details">
+                <Route path="/details/:category/:id">
                   <div className="container">
-                    {this.state.detailsItem && <DetailsComponent item={this.state.detailsItem}></DetailsComponent>}
+                    {this.state.detailsItem && <DetailsFactoryComponent item={this.state.detailsItem}></DetailsFactoryComponent>}
                   </div>
                 </Route>
                 <EmitDetailsContext.Provider value={{clickMethod: this.onDetailsClick}}>
