@@ -3,6 +3,8 @@ import { IModelBase } from '../../models/modelBase';
 import { Link } from "react-router-dom";
 import CusButton from '../elements/button/cusButton';
 import EmitDetailsContext from '../../services/contexts/emitDetailsContext';
+import strings from '../../services/strings';
+
 
 interface IListItemProps<T> {
     item: T;
@@ -16,7 +18,7 @@ const ListItem = <T extends IModelBase>(props: IListItemProps<T>) => {
                 <span className='button-span'>
                     <Link to={"/details"}>
                         <EmitDetailsContext.Consumer>
-                            {(value) => <CusButton btnType={'button'} btnText={'Details'} onClickMethod={() => value?.clickMethod(props.item)}></CusButton> }       
+                            {(value) => <CusButton btnType={'button'} btnText={strings.details} onClickMethod={() => value?.clickMethod(props.item)}></CusButton> }       
                         </EmitDetailsContext.Consumer>
                     </Link>
                 </span>

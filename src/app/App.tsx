@@ -16,6 +16,7 @@ import ListFactory from './services/listFactory';
 import DetailsComponent from './components/details/detailsComponent';
 import EmitDetailsContext from './services/contexts/emitDetailsContext';
 import { IModelBase } from './models/modelBase';
+import Strings from './services/strings';
 
 interface IState {
   civilizations: Array<ICivilization>;
@@ -50,28 +51,28 @@ class App extends Component<{}, IState> {
     // For testing, refactor this
 
     const civPromise = new Promise<Array<ICivilization>>(async (resolve, reject) => {
-      resolve(await HttpService.getList('civilizations'));
+      resolve(await HttpService.getList(Strings.civilizations));
     });
 
     const unitPromise = new Promise<Array<IUnit>>(async (resolve, reject) => {
-      resolve(await HttpService.getList('units'));
+      resolve(await HttpService.getList(Strings.units));
     });
 
     const techPromise = new Promise<Array<ITechnology>>(async (resolve, reject) => {
-      resolve(await HttpService.getList('technologies'));
+      resolve(await HttpService.getList(Strings.technologies));
     });
 
     const structPromise = new Promise<Array<IStructure>>(async (resolve, reject) => {
-      resolve(await HttpService.getList('structures'));
+      resolve(await HttpService.getList(Strings.structures));
     });
 
     await Promise.all([civPromise, unitPromise, techPromise, structPromise]).then((data) => {
       if(data) {
         this.setState(({
-            civilizations: ListFactory.GetList(data[0], 'civilizations'),
-            units: ListFactory.GetList(data[1], 'units'),
-            technologies: ListFactory.GetList(data[2], 'technologies'),
-            structures: ListFactory.GetList(data[3], 'structures'),
+            civilizations: ListFactory.GetList(data[0], Strings.civilizations),
+            units: ListFactory.GetList(data[1], Strings.units),
+            technologies: ListFactory.GetList(data[2], Strings.technologies),
+            structures: ListFactory.GetList(data[3], Strings.structures),
             isLoading: false
         }));
 
@@ -100,17 +101,19 @@ class App extends Component<{}, IState> {
     // Refactor this, temporary solution
 
     const appStyle = {
-      backgroundImage: `url(${process.env.PUBLIC_URL + '/images/image4.jpg'})`,
+      backgroundImage: `url(${process.env.PUBLIC_URL + '/images/image1.jpg'})`,
       // backgroundSize: 'cover', 
       backgroundPosition: 'center center',
       // backgroundRepeat: 'no-repeat',
     };
 
+    //end
+
     return (
       <Fragment>
         <div style={appStyle}>
         <Router>
-        <NavBar navClass="navbar navbar-expand-lg navbar-light bg-light" linkClass="nav-item nav-link" paths={['home', 'civilizations', 'units', 'technologies', 'structures']}></NavBar>
+        <NavBar navClass="navbar navbar-expand-lg navbar-light bg-light" linkClass="nav-item nav-link" paths={Strings.getMenuItems()}></NavBar>
             <Switch>
                 <Route path="/home" render={() => (<div className="container"><h1>Home</h1><CusButton btnType={'button'} btnText={'TEST BUTTON'} onClickMethod={this.testClick}></CusButton></div>)}>
                 </Route>
