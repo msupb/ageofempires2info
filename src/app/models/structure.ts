@@ -13,5 +13,5 @@ export interface IStructure extends IModelBase {
     range: string;
     relaod_time: number;
     attack: number;
-    special: Array<string>
+    special: Array<string>;
 }

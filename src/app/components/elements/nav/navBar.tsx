@@ -10,7 +10,7 @@ interface INavBarProps {
 const NavBar = (props: INavBarProps) => {
     return (
         <nav className={props.navClass}>
-            {props.paths.map((path) => <Link key={path} className={props.linkClass} to={'/' + path}>{path}</Link>)}
+            {props.paths.map((path) => <Link key={path} className={props.linkClass} to={'/' + path}>{path.toUpperCase()}</Link>)}
         </nav>
     )
 }

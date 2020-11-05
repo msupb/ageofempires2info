@@ -10,12 +10,11 @@ interface IListItemProps<T> {
 }
 
 const ListItem = <T extends IModelBase>(props: IListItemProps<T>) => {
-    console.log(props);
     return(
         <div className={props.className}>
             <h4>{props.item.name}</h4>
                 <span className='button-span'>
-                    <Link to={`/details/${props.item.category}/${props.item.id}`}>
+                    <Link to={"/details"}>
                         <EmitDetailsContext.Consumer>
                             {(value) => <CusButton btnType={'button'} btnText={'Details'} onClickMethod={() => value?.clickMethod(props.item)}></CusButton> }       
                         </EmitDetailsContext.Consumer>

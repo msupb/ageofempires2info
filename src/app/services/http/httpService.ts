@@ -16,7 +16,7 @@ class HttpService {
             console.log(error);
           }
 
-          return data;
+        return data;
     }
 
     public async get<T>(uri: string, id: number): Promise<T> {
@@ -32,7 +32,7 @@ class HttpService {
             console.log(error);
           }
 
-          return data;
+        return data;
     }
 }
 
