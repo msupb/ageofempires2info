@@ -25,7 +25,7 @@ interface IState {
   structures: Array<IStructure>;
   isLoading: boolean;
   showDetails: boolean;
-  detailsItem: IModelBase | null;
+  detailsItem: IModelBase;
 }
 
 class App extends Component<{}, IState> {
@@ -42,7 +42,7 @@ class App extends Component<{}, IState> {
       structures: [],
       isLoading: true,
       showDetails: false,
-      detailsItem: null
+      detailsItem: {}
     };
   }
   

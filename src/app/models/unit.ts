@@ -2,6 +2,7 @@ import { ICost } from "./cost";
 import {IModelBase} from './modelBase';
 
 export interface IUnit extends IModelBase {
+    description: string;
     expansion: string;
     age: string;
     created_in: string;
