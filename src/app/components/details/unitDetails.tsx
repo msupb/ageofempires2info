@@ -1,6 +1,5 @@
 import React from 'react';
 import { IUnit } from '../../models/unit';
-import utilities from '../../services/utilities';
 import CostDetails from './costDetails';
 
 interface IUnitProps {
@@ -8,13 +7,7 @@ interface IUnitProps {
 }
 
 const UnitDetails = (props: IUnitProps) => {
-    console.log('HELLO FROM UNITCARD', props);
-    let test: any = [];
-    if(props.item.created_in)
-        test = utilities.trimUrl(props.item.created_in);
-
-    console.log(test);
-
+ 
     return(
         <div className="card">
             <p>Description: {props.item.description}</p>
@@ -31,10 +24,12 @@ const UnitDetails = (props: IUnitProps) => {
             <p>Range: {props.item.range}</p>
             <p>Attack: {props.item.attack}</p>
             <p>Armor: {props.item.armor}</p>
-            {props.item.attack_bonus && props.item.attack_bonus.map((x) => {return (<div><label>Attack bonus</label><ul>
+            <label>Attack bonus</label>
+            {props.item.attack_bonus && props.item.attack_bonus.map((x) => {return (<div><ul>
                 <li>{x}</li>
             </ul></div>)})}
-            {props.item.armor_bonus && props.item.armor_bonus.map((x) => {return (<div><label>Armor bonus</label><ul>
+            <label>Armor bonus</label>
+            {props.item.armor_bonus && props.item.armor_bonus.map((x) => {return (<div><ul>
                 <li>{x}</li>
             </ul></div>)})}
             <p>Search radius: {props.item.search_radius}</p>

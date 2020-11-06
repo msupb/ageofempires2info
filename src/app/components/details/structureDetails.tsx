@@ -22,7 +22,8 @@ const StructureDetails = (props: IStructureProps) => {
             <p>Range: {props.item.range}</p>
             <p>Reload time: {props.item.relaod_time}</p>
             <p>Attack: {props.item.attack}</p>
-            {props.item.special && props.item.special.map((x) => {return (<div><label>Special:</label><ul>
+            <label>Special:</label>
+            {props.item.special && props.item.special.map((x) => {return (<div><ul>
                 <li>{x}</li>
             </ul></div>)})}    
         </div>

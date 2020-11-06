@@ -19,14 +19,14 @@ class HttpService {
         return data;
     }
 
-    public async get<T>(uri: string, id: number): Promise<T> {
+    public async get<T>(uri: string, id: string): Promise<T> {
         let data: any = {};
 
         try{
             const response = await axios.get(this._baseUrl + uri + '/' + id);
 
             if(response)
-                data = response.data;
+                data = response.data; 
           }
           catch(error) {
             console.log(error);
