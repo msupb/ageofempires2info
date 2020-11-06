@@ -1,5 +1,6 @@
 import React from 'react';
 import { IUnit } from '../../models/unit';
+import utilities from '../../services/utilities';
 
 interface IUnitProps {
     item: IUnit;
@@ -7,6 +8,11 @@ interface IUnitProps {
 
 const UnitDetails = (props: IUnitProps) => {
     console.log('HELLO FROM UNITCARD', props);
+    let test: any = [];
+    if(props.item.created_in)
+        test = utilities.trimUrl(props.item.created_in);
+
+    console.log(test);
 
     return(
         <div className="card">

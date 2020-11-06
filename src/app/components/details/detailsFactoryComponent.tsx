@@ -6,6 +6,8 @@ import { ITechnology } from '../../models/technology';
 import { IUnit } from '../../models/unit';
 import Strings from '../../services/strings';
 import CivilizationDetails from './civilizationDetails';
+import StructureDetails from './structureDetails';
+import TechnologyDetails from './technologyDetails';
 import UnitDetails from './unitDetails';
 
 interface IDetailsProps<T> {
@@ -29,7 +31,7 @@ const DetailsFactoryComponent = <T extends IModelBase>(props: IDetailsProps<T>) 
         }
 
         return null;
-            
+
     }
 
     const item = setType(props);
@@ -46,6 +48,8 @@ const DetailsFactoryComponent = <T extends IModelBase>(props: IDetailsProps<T>) 
             <h1>{item && item.name}</h1>
             {isUnit(item) && <UnitDetails item={item as IUnit}></UnitDetails>}
             {isCivilization(item) && <CivilizationDetails item={item as ICivilization}></CivilizationDetails>}
+            {isStructure(item) && <StructureDetails item={item as IStructure}></StructureDetails>}
+            {isTechnology(item) && <TechnologyDetails item={item as ITechnology}></TechnologyDetails>}
         </section>
     )
 }

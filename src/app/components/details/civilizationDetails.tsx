@@ -11,9 +11,8 @@ const CivilizationDetails = (props: ICivilizationProps) => {
     return(
         <div className="card">
             <p>Expansion: {props.item.expansion}</p>
-            <p>Age: {props.item.army_type}</p>
-            <p>Created in: {props.item.team_bonus}</p>
-            <label>Cost</label>
+            <p>Army type: {props.item.army_type}</p>
+            <p>Created in: {props.item.team_bonus}</p> 
             {props.item.unique_unit && props.item.unique_unit.map((x) => {return (<div><label>Unique unit:</label><ul>
                 <li>{x}</li>
             </ul></div>)})}
