@@ -1,6 +1,7 @@
 import React from 'react';
 import { IUnit } from '../../models/unit';
 import CostDetails from './costDetails';
+import LinkDetails from './linkDetails';
 
 interface IUnitProps {
     item: IUnit;
@@ -13,7 +14,8 @@ const UnitDetails = (props: IUnitProps) => {
             <p>Description: {props.item.description}</p>
             <p>Expansion: {props.item.expansion}</p>
             <p>Age: {props.item.age}</p>
-            <p>Created in: {props.item.created_in}</p>
+            <label>Created in:</label>
+            <LinkDetails links={[props.item.created_in]}></LinkDetails>
             <CostDetails cost={props.item.cost}></CostDetails>
             <p>Build time: {props.item.build_time}</p>
             <p>Reload time: {props.item.reload_time}</p>
