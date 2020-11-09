@@ -7,6 +7,11 @@ class Strings {
     public readonly structures: string = 'structures';
     public readonly home: string = 'home';
     public readonly details: string = 'Details';
+    public readonly civilization: string = 'civilization';
+    public readonly unit: string = 'unit';
+    public readonly technology: string = 'technology';
+    public readonly structure: string = 'structure';
+    public readonly goTo: string = 'Go To';
 
     public getMenuItems(): Array<string> {
         let menuItems: Array<string> = [];

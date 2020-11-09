@@ -17,6 +17,7 @@ import DetailsFactoryComponent from './components/details/detailsFactoryComponen
 import EmitDetailsContext from './services/contexts/emitDetailsContext';
 import { IModelBase } from './models/modelBase';
 import Strings from './services/strings';
+import HomeComponent from './components/home/homeComponent';
 
 interface IState {
   civilizations: Array<ICivilization>;
@@ -25,6 +26,7 @@ interface IState {
   structures: Array<IStructure>;
   isLoading: boolean;
   showDetails: boolean;
+  linkedDetails: boolean;
   detailsItem: IModelBase;
 }
 
@@ -42,6 +44,7 @@ class App extends Component<{}, IState> {
       structures: [],
       isLoading: true,
       showDetails: false,
+      linkedDetails: false,
       detailsItem: {}
     };
   }
@@ -117,12 +120,12 @@ class App extends Component<{}, IState> {
             <Switch>
                 <Route path="/home" render={() => (<div className="container"><h1>Home</h1><CusButton btnType={'button'} btnText={'TEST BUTTON'} onClickMethod={this.testClick}></CusButton></div>)}>
                 </Route>
-                <Route path="/details/:category/:id">
-                  <div className="container">
-                    {this.state.detailsItem && <DetailsFactoryComponent item={this.state.detailsItem}></DetailsFactoryComponent>}
-                  </div>
-                </Route>
                 <EmitDetailsContext.Provider value={{clickMethod: this.onDetailsClick}}>
+                  <Route path="/details/:category/:id">
+                    <div className="container">
+                      {this.state.detailsItem && <DetailsFactoryComponent item={this.state.detailsItem}></DetailsFactoryComponent>}
+                    </div>
+                  </Route>
                   <Route path="/civilizations">
                     <div className="container">
                       <ListComponent itemList={this.state.civilizations}></ListComponent>
