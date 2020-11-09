@@ -46,10 +46,10 @@ const DetailsFactoryComponent = <T extends IModelBase>(props: IDetailsProps<T>) 
     return(
         <section className="card">
             <h1>{item && item.name}</h1>
-            {isUnit(item) && <UnitDetails item={item as IUnit}></UnitDetails>}
-            {isCivilization(item) && <CivilizationDetails item={item as ICivilization}></CivilizationDetails>}
-            {isStructure(item) && <StructureDetails item={item as IStructure}></StructureDetails>}
-            {isTechnology(item) && <TechnologyDetails item={item as ITechnology}></TechnologyDetails>}
+            {isUnit(item) && <UnitDetails item={item}></UnitDetails>}
+            {isCivilization(item) && <CivilizationDetails item={item}></CivilizationDetails>}
+            {isStructure(item) && <StructureDetails item={item}></StructureDetails>}
+            {isTechnology(item) && <TechnologyDetails item={item}></TechnologyDetails>}
         </section>
     )
 }

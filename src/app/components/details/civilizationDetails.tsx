@@ -7,8 +7,7 @@ interface ICivilizationProps {
 }
 
 const CivilizationDetails = (props: ICivilizationProps) => {
-    console.log('HELLO FROM UNITCARD', props);
-
+ 
     return(
         <div className="card">
             <p>Expansion: {props.item.expansion}</p>

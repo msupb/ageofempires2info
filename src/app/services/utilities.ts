@@ -1,9 +1,9 @@
 class Utilities {
 
     public trimUrl(url: any): Array<string> {
-        let regex1 = /\/([^/]+)\/[^/]*$/;
+        const regex1 = /\/([^/]+)\/[^/]*$/;
 
-        let regex2 = /^\/|\/$/g;
+        const regex2 = /^\/|\/$/g;
 
         let output: string = url.match(regex1)[0];
 

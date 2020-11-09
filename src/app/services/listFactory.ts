@@ -27,8 +27,7 @@ class ListFactory {
         const add = {localId: key, category: category};
 
         const newItem = Object.assign(item, add);
-        console.log(newItem);
-        
+
         return newItem;
     }
 
