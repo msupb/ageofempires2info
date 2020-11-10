@@ -26,7 +26,7 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
         return formatted;
     }
 
-    const internalItemFactory = (link: string, item: any): T => {
+    const internalItemFactory = (item: any, link: string): T => {
         if(link === strings.civilization)
             item = ListFactory.GetItem(item, strings.civilizations);
         if(link === strings.unit)
