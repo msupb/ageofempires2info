@@ -37,7 +37,7 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
             item = ListFactory.GetItem(item, strings.structures);
 
         return item as T;
-    } 
+    }
 
     const internalListFactory = (list: Array<T>, link: string): Array<T> => {
         if(link === strings.civilization)
@@ -65,7 +65,7 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
                     data = internalListFactory(data, link[0])
                     items = data;
                 } else {
-                    data = internalItemFactory(link[0], data);
+                    data = internalItemFactory(data, link[0]);
                     items.push(data);
                 }
 
@@ -75,11 +75,11 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
 
             
             setItemFetched(true);
-            
+
         });
-    
+
         getItems(formatted);
-        
+
         return () => {
             console.log('DISPOSED');
         };
@@ -90,7 +90,6 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
         <div className="card">
             {(itemFetched && linkedItems) && <LinkDetail itemList={linkedItems.items as Array<IModelBase>}></LinkDetail>}
         </div>
-        
     )
 }
 

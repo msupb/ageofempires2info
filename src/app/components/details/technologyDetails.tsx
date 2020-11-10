@@ -8,11 +8,9 @@ interface ITechnologyProps {
 }
 
 const TechnologyDetails = (props: ITechnologyProps) => {
-    let isNotUrl: boolean = false;
-
-    props.item.applies_to.forEach(x => {
-        isNotUrl = x.includes(' ');
-    });
+    // Filter and move any non url strings to filtered array and print separately
+    let filtered = props.item.applies_to.filter(x => !x.includes('https://'));
+    filtered.forEach(x => props.item.applies_to.splice(props.item.applies_to.findIndex(z => z === x),1));
 
     return(
         <div className="card">
@@ -24,8 +22,8 @@ const TechnologyDetails = (props: ITechnologyProps) => {
             {props.item.cost && <CostDetails cost={props.item.cost}></CostDetails>}
             {props.item.build_time && <p>Build time: {props.item.build_time}</p>} 
             {props.item.applies_to && <label>Applies to:</label>}
-            {(props.item.applies_to && !isNotUrl) && <LinkDetailsComponent links={props.item.applies_to}></LinkDetailsComponent>}
-            {(props.item.applies_to && isNotUrl) && props.item.applies_to.map((x) => {return (<div><ul>
+            {props.item.applies_to && <LinkDetailsComponent links={props.item.applies_to}></LinkDetailsComponent>}
+            {(filtered.length > 0) && props.item.applies_to.map((x) => {return (<div><ul>
                 <li>{x}</li>
             </ul></div>)})}
         </div>
