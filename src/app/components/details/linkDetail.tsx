@@ -6,18 +6,18 @@ import strings from '../../services/strings';
 import CusButton from '../elements/button/cusButton';
 
 interface ILinkDetailProps {
-    itemList: any;
+    itemList: Array<IModelBase>;
 }
 
 const LinkDetail = (props: ILinkDetailProps) => {
-    console.log('HELLO FROM LINKDETAIL', props.itemList);
-
+    console.log('LINKDETAIL', props);
     return (
         <div>
-            {props.itemList && props.itemList.map((item: any) => {
+            {props.itemList && props.itemList.map((item: IModelBase) => {
                 return(
                     <div>
                         <p key={item.localId}>{item.name}</p>
+                        <p key={item.localId}>{item.age}</p>
                         <Link to={`/details/${item.category}/${item.id}`}>
                             <EmitDetailsContext.Consumer>
                                 {(value) => <CusButton btnType={'button'} btnText={strings.goTo} onClickMethod={() => value?.clickMethod(item)}></CusButton> }    

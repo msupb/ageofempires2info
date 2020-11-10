@@ -39,6 +39,19 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
         return item as T;
     } 
 
+    const internalListFactory = (list: Array<T>, link: string): Array<T> => {
+        if(link === strings.civilization)
+            list = ListFactory.GetList(list, strings.civilizations);
+        if(link === strings.unit)
+            list = ListFactory.GetList(list, strings.units);
+        if(link === strings.technology)
+            list = ListFactory.GetList(list, strings.technologies);
+        if(link === strings.structure)
+            list = ListFactory.GetList(list, strings.structures);
+        
+        return list;
+    }
+
     const formatted: Array<Array<string>> = formatLinks(props.links);
 
     useEffect(() => {       
@@ -49,11 +62,8 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
                 let data: any = await HttpService.get(link[0], link[1]);
     
                 if(data.constructor === Array) {
-                    data.forEach(item => {
-                        item = internalItemFactory(link[0], item);
-                        items.push(item);
-                        console.log('Is array', items);
-                    })
+                    data = internalListFactory(data, link[0])
+                    items = data;
                 } else {
                     data = internalItemFactory(link[0], data);
                     items.push(data);
@@ -78,7 +88,7 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
 
     return(
         <div className="card">
-            {(itemFetched && linkedItems) && <LinkDetail itemList={linkedItems.items}></LinkDetail>}
+            {(itemFetched && linkedItems) && <LinkDetail itemList={linkedItems.items as Array<IModelBase>}></LinkDetail>}
         </div>
         
     )

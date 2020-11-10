@@ -3,4 +3,5 @@ export interface IModelBase {
     category?: string;
     id?: number;
     name?: string;
+    age?: string;
 }

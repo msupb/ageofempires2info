@@ -35,8 +35,6 @@ const DetailsFactoryComponent = <T extends IModelBase>(props: IDetailsProps<T>) 
 
     const item = setType(props);
 
-    console.log('ITEM', item, typeof item);
-
     const isCivilization = (item: any): item is ICivilization => {return item.category === Strings.civilizations}
     const isUnit = (item: any): item is IUnit => {return item.category === Strings.units}
     const isTechnology = (item: any): item is ITechnology => {return item.category === Strings.technologies}
