@@ -15,7 +15,6 @@ interface IDetailsProps<T> {
 }
 
 const DetailsFactoryComponent = <T extends IModelBase>(props: IDetailsProps<T>) => {
-    console.log('Hello from details', props);
 
     const setType = (props: IDetailsProps<T>): IModelBase | null => {
         // Cast prop item to relevant type

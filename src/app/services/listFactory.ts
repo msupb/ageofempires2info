@@ -14,16 +14,17 @@ class ListFactory {
 
         let entries: Array<T> = [];
 
-        list.forEach(x => {
-            let key: string = category + x.id + x.name;
-            entries.push({...x, localId: key, category: category});
+        list.forEach((item: T) => {
+            const name = item.name?.replace(' ', '');
+            const key: string = category + item.id + name;
+            entries.push({...item, localId: key, category: category});
         });
 
         return entries;
     }
 
     private CreateItem<T extends IModelBase>(item: T, category: string): IModelBase {
-        const key = category + item.id + item.name;
+        const key = category + item.id + item.name?.replace(' ', '');
         const add = {localId: key, category: category};
 
         const newItem = Object.assign(item, add);
