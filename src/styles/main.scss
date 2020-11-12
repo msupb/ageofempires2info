@@ -1,4 +1,27 @@
 @import '../app/components/details/details.scss';
 @import '../app/components/home/homeStyle.scss';
 @import '../app/components/list/listStyle.scss';
-@import './mixins.scss';
+@import '../app/components/elements/nav/navStyle.scss';
+// @import './mixins.scss';
+
+.container {
+    width: 500 px!important;
+}
+
+.background-container {
+    background-color: #fafafa;
+}
+html {
+  background-color: #fafafa;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 2px;
+  }
+
+button {
+    margin: 10px;
+}
