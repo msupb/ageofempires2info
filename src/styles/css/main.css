@@ -44,6 +44,19 @@
   background-color: #151515;
   padding: 10px 15px 10px 30px; }
 
+.error-container {
+  background-color: #edb724;
+  height: 200px;
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px; }
+  .error-container h1 {
+    color: #e61212;
+    margin: auto;
+    vertical-align: middle; }
+
 .container {
   width: 500 px !important; }
 

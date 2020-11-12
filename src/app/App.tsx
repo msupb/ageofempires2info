@@ -88,7 +88,7 @@ class App extends Component<{}, IState> {
     if(item) {
       this.setState(({
         ...this.state,
-        detailsItem: item,
+        detailsItem: {},
         showDetails: true
       }));
     } 
