@@ -1,6 +1,6 @@
-import { IModelBase } from './../models/modelBase';
+import { IModelBase } from '../models/modelBase';
 
-class ListFactory {
+class ItemBuilder {
 
     public GetList<T extends IModelBase>(list: Array<T>, category: string): Array<T> {
         return this.CreateList(list, category);
@@ -34,4 +34,4 @@ class ListFactory {
 
 }
 
-export default new ListFactory();
+export default new ItemBuilder();

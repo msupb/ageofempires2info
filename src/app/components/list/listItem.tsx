@@ -14,7 +14,8 @@ interface IListItemProps<T> {
 const ListItem = <T extends IModelBase>(props: IListItemProps<T>) => {
     return(
         <div className={props.className}>
-            <h4>{props.item.name}</h4>
+            <div className="container">
+                <h4><b>{props.item.name}</b></h4>               
                 <span className='button-span'>
                     <Link to={`/details/${props.item.category}/${props.item.id}`}>
                         <EmitDetailsContext.Consumer>
@@ -22,6 +23,7 @@ const ListItem = <T extends IModelBase>(props: IListItemProps<T>) => {
                         </EmitDetailsContext.Consumer>
                     </Link>
                 </span>
+            </div>
         </div>
     )
 }

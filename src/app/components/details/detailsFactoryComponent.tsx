@@ -41,12 +41,13 @@ const DetailsFactoryComponent = <T extends IModelBase>(props: IDetailsProps<T>) 
     const isStructure = (item: any): item is IStructure => {return item.category === Strings.structures}
 
     return(
-        <section className="card">
-            <h1>{item && item.name}</h1>
-            {isUnit(item) && <UnitDetails item={item}></UnitDetails>}
-            {isCivilization(item) && <CivilizationDetails item={item}></CivilizationDetails>}
-            {isStructure(item) && <StructureDetails item={item}></StructureDetails>}
-            {isTechnology(item) && <TechnologyDetails item={item}></TechnologyDetails>}
+        <section>
+            <div className="container">
+                {isUnit(item) && <UnitDetails item={item}></UnitDetails>}
+                {isCivilization(item) && <CivilizationDetails item={item}></CivilizationDetails>}
+                {isStructure(item) && <StructureDetails item={item}></StructureDetails>}
+                {isTechnology(item) && <TechnologyDetails item={item}></TechnologyDetails>}
+            </div>
         </section>
     )
 }

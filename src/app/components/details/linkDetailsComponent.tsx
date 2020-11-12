@@ -3,7 +3,7 @@ import utilities from '../../services/utilities';
 import HttpService from '../../services/http/httpService';
 import { IModelBase } from '../../models/modelBase';
 import strings from '../../services/strings';
-import ListFactory from '../../services/listFactory';
+import ItemBuilder from '../../services/itemBuilder';
 import LinkDetail from './linkDetail';
 
 interface ILinkDetailsProps {
@@ -28,33 +28,33 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
 
     const internalItemFactory = (item: any, link: string): T => {
         if(link === strings.civilization)
-            item = ListFactory.GetItem(item, strings.civilizations);
+            item = ItemBuilder.GetItem(item, strings.civilizations);
         if(link === strings.unit)
-            item = ListFactory.GetItem(item, strings.units);
+            item = ItemBuilder.GetItem(item, strings.units);
         if(link === strings.technology)
-            item = ListFactory.GetItem(item, strings.technologies);
+            item = ItemBuilder.GetItem(item, strings.technologies);
         if(link === strings.structure)
-            item = ListFactory.GetItem(item, strings.structures);
+            item = ItemBuilder.GetItem(item, strings.structures);
 
         return item as T;
     }
 
     const internalListFactory = (list: Array<T>, link: string): Array<T> => {
         if(link === strings.civilization)
-            list = ListFactory.GetList(list, strings.civilizations);
+            list = ItemBuilder.GetList(list, strings.civilizations);
         if(link === strings.unit)
-            list = ListFactory.GetList(list, strings.units);
+            list = ItemBuilder.GetList(list, strings.units);
         if(link === strings.technology)
-            list = ListFactory.GetList(list, strings.technologies);
+            list = ItemBuilder.GetList(list, strings.technologies);
         if(link === strings.structure)
-            list = ListFactory.GetList(list, strings.structures);
+            list = ItemBuilder.GetList(list, strings.structures);
         
         return list;
     }
 
     const formatted: Array<Array<string>> = formatLinks(props.links);
 
-    useEffect(() => {       
+    useEffect(() => {
         const getItems = ((links: Array<Array<string>>) => {
             let items: any = [];
             links.forEach(async(link) => {
@@ -87,7 +87,7 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
     }, []);
 
     return(
-        <div className="card">
+        <div className="link-card card">
             {(itemFetched && linkedItems) && <LinkDetail itemList={linkedItems.items as Array<IModelBase>}></LinkDetail>}
         </div>
     )

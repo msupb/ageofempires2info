@@ -3,21 +3,18 @@ import { IStructure } from './models/structure';
 import { IUnit } from './models/unit';
 import HttpService from './services/http/httpService';
 import NavBar from './components/elements/nav/navBar';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import CusButton from './components/elements/button/cusButton';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ListComponent from './components/list/listComponent';
 import { ICivilization } from './models/civilization';
 import { ITechnology } from './models/technology';
-import ListFactory from './services/listFactory';
+import ItemBuilder from './services/itemBuilder';
 import DetailsFactoryComponent from './components/details/detailsFactoryComponent';
 import EmitDetailsContext from './services/contexts/emitDetailsContext';
 import { IModelBase } from './models/modelBase';
 import Strings from './services/strings';
 import HomeComponent from './components/home/homeComponent';
+import ListBoundary from './components/errorBoundary/listBoundary';
+import DetailsBoundary from './components/errorBoundary/detailsBoundary';
 
 interface IState {
   civilizations: Array<ICivilization>;
@@ -51,8 +48,6 @@ class App extends Component<{}, IState> {
   
   async componentDidMount() {
 
-    // For testing, refactor this
-
     const civPromise = new Promise<Array<ICivilization>>(async (resolve, reject) => {
       resolve(await HttpService.getList(Strings.civilizations));
     });
@@ -72,10 +67,10 @@ class App extends Component<{}, IState> {
     await Promise.all([civPromise, unitPromise, techPromise, structPromise]).then((data) => {
       if(data) {
         this.setState(({
-            civilizations: ListFactory.GetList(data[0], Strings.civilizations),
-            units: ListFactory.GetList(data[1], Strings.units),
-            technologies: ListFactory.GetList(data[2], Strings.technologies),
-            structures: ListFactory.GetList(data[3], Strings.structures),
+            civilizations: ItemBuilder.GetList(data[0], Strings.civilizations),
+            units: ItemBuilder.GetList(data[1], Strings.units),
+            technologies: ItemBuilder.GetList(data[2], Strings.technologies),
+            structures: ItemBuilder.GetList(data[3], Strings.structures),
             isLoading: false
         }));
 
@@ -104,9 +99,9 @@ class App extends Component<{}, IState> {
     // Refactor this, temporary solution
 
     const appStyle = {
-      backgroundImage: `url(${process.env.PUBLIC_URL + '/images/image1.jpg'})`,
-      // backgroundSize: 'cover', 
-      backgroundPosition: 'center center',
+      // backgroundImage: `url(${process.env.PUBLIC_URL + '/images/image1.jpg'})`,
+      // // backgroundSize: 'cover', 
+      // backgroundPosition: 'center center',
       // backgroundRepeat: 'no-repeat',
     };
 
@@ -114,39 +109,51 @@ class App extends Component<{}, IState> {
 
     return (
       <Fragment>
-        <div style={appStyle}>
+        <div style={appStyle} className="background-container">
         <Router>
         <NavBar navClass="navbar navbar-expand-lg navbar-light bg-light" linkClass="nav-item nav-link" paths={Strings.getMenuItems()}></NavBar>
             <Switch>
-                <Route path="/home" render={() => (<div className="container"><h1>Home</h1><CusButton btnType={'button'} btnText={'TEST BUTTON'} onClickMethod={this.testClick}></CusButton></div>)}>
+                {/* <Redirect from="/" to="/home"></Redirect> */}
+                <Route path="/home">
+                  <HomeComponent></HomeComponent>
                 </Route>
                 <EmitDetailsContext.Provider value={{clickMethod: this.onDetailsClick}}>
                   <Route path="/details/:category/:id">
                     <div className="container">
-                      {this.state.detailsItem && <DetailsFactoryComponent item={this.state.detailsItem}></DetailsFactoryComponent>}
+                      <DetailsBoundary>
+                        {this.state.detailsItem && <DetailsFactoryComponent item={this.state.detailsItem}></DetailsFactoryComponent>}
+                      </DetailsBoundary>            
                     </div>
                   </Route>
                   <Route path="/civilizations">
                     <div className="container">
-                      <ListComponent itemList={this.state.civilizations}></ListComponent>
-                    </div>   
+                      <ListBoundary>
+                        <ListComponent itemList={this.state.civilizations}></ListComponent>
+                      </ListBoundary>
+                     </div>   
                   </Route>
-                  <Route path="/units">
+                   <Route path="/units">
                     <div className="container">
-                      <ListComponent itemList={this.state.units}></ListComponent>
-                    </div>     
-                  </Route>
-                  <Route path="/technologies">
+                      <ListBoundary>
+                        <ListComponent itemList={this.state.units}></ListComponent>
+                      </ListBoundary>
+                     </div>     
+                   </Route>
+                   <Route path="/technologies">
                     <div className="container">
-                      <ListComponent itemList={this.state.technologies}></ListComponent>
-                    </div>  
-                  </Route>
+                      <ListBoundary>
+                        <ListComponent itemList={this.state.technologies}></ListComponent>
+                      </ListBoundary>
+                     </div>  
+                   </Route>
                   <Route path="/structures">
-                    <div className="container">
-                      <ListComponent itemList={this.state.structures}></ListComponent>
-                    </div>
-                  </Route>
-                </EmitDetailsContext.Provider>         
+                     <div className="container">
+                       <ListBoundary>
+                        <ListComponent itemList={this.state.structures}></ListComponent>
+                       </ListBoundary>
+                     </div>
+                   </Route>
+                 </EmitDetailsContext.Provider> 
             </Switch>
         </Router>
         </div>

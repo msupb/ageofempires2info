@@ -12,6 +12,7 @@ class Strings {
     public readonly technology: string = 'technology';
     public readonly structure: string = 'structure';
     public readonly goTo: string = 'Go To';
+    public readonly sideBarText: string = 'Age of Empires 2 info'
 
     public getMenuItems(): Array<string> {
         let menuItems: Array<string> = [];
