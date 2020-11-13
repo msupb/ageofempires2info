@@ -13,7 +13,7 @@ abstract class ErrorBoundary extends Component<IProps, IState> {
     hasError: false
   };
 
-  public static getDerivedStateFromError(_: Error): IState {
+  protected static getDerivedStateFromError(_: Error): IState {
     // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
