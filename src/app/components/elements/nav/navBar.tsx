@@ -9,11 +9,19 @@ interface INavBarProps {
 }
 
 const NavBar = (props: INavBarProps) => {
+
+    const appStyle = {
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/images/image4.jpg'})`,
+        // backgroundSize: 'cover', 
+        // backgroundPosition: 'center center',
+        // backgroundRepeat: 'no-repeat',
+      };
+
     return (
         // <nav className={props.navClass}>
         //     {props.paths.map((path) => <Link key={path} className={props.linkClass} to={`/${path}`}>{path.toUpperCase()}</Link>)}
         // </nav>
-        <div className="sidebar-container">
+        <div style={appStyle} className="sidebar-container">
             <div className="sidebar-logo">
                 {Strings.sideBarText}
             </div>

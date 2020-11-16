@@ -15,13 +15,15 @@ const LinkDetail = (props: ILinkDetailProps) => {
             {props.itemList && props.itemList.map((item: IModelBase) => {
                 return(
                     <div className="container">
-                        <h5 key={item.localId}><b>{item.name}</b></h5>
-                        <p className="link-details" key={item.localId}>Age: {item.age}</p>
+                        <h6 key={item.localId}><b>{item.name}</b></h6>
+                        <div className="details-wrap">
+                            <p className="link-details" key={item.localId}>Age: {item.age}</p>
                         <Link to={`/details/${item.category}/${item.id}`}>
                             <EmitDetailsContext.Consumer>
                                 {(value) => <CusButton btnType={'button'} btnText={strings.goTo} onClickMethod={() => value?.clickMethod(item)}></CusButton> }    
                             </EmitDetailsContext.Consumer>
                         </Link>
+                        </div>
                     </div>
                 )})}
         </div>

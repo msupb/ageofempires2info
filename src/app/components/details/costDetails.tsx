@@ -9,7 +9,7 @@ const CostDetails = (props: ICostProps) => {
     return(
         <div className="link-card card">
             <div className="container">
-                <h5><b>Cost</b></h5>
+                <h6><b>Cost</b></h6>
                 {props.cost.info && <p>Info: {props.cost.info}</p>}
                 {props.cost.Food && <p>Food: {props.cost.Food}</p>}
                 {props.cost.Gold && <p>Gold: {props.cost.Gold}</p>}

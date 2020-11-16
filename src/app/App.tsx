@@ -48,6 +48,8 @@ class App extends Component<{}, IState> {
   
   async componentDidMount() {
 
+    // Load all API data on application start
+
     const civPromise = new Promise<Array<ICivilization>>(async (resolve, reject) => {
       resolve(await HttpService.getList(Strings.civilizations));
     });
@@ -80,15 +82,11 @@ class App extends Component<{}, IState> {
     }).catch((err) => console.log(err));
   }
 
-  protected testClick(): void {
-    console.log('testClick');
-  }
-
   protected onDetailsClick(item: any): void {
     if(item) {
       this.setState(({
         ...this.state,
-        detailsItem: {},
+        detailsItem: item,
         showDetails: true
       }));
     } 
@@ -96,20 +94,9 @@ class App extends Component<{}, IState> {
 
   render() {
 
-    // Refactor this, temporary solution
-
-    const appStyle = {
-      // backgroundImage: `url(${process.env.PUBLIC_URL + '/images/image1.jpg'})`,
-      // // backgroundSize: 'cover', 
-      // backgroundPosition: 'center center',
-      // backgroundRepeat: 'no-repeat',
-    };
-
-    //end
-
     return (
       <Fragment>
-        <div style={appStyle} className="background-container">
+        <div className="background-container">
         <Router>
         <NavBar navClass="navbar navbar-expand-lg navbar-light bg-light" linkClass="nav-item nav-link" paths={Strings.getMenuItems()}></NavBar>
             <Switch>

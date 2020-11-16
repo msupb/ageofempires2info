@@ -13,24 +13,26 @@
 
 .sidebar-container {
   position: fixed;
-  width: 280px;
+  width: 300px;
   height: 100%;
   left: 0;
   overflow-x: hidden;
   overflow-y: auto;
   background: #ebebeb;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border: 0.1px solid #9e9d9d;
-  /* color: #fff; */ }
+  border: 0.1px solid #9e9d9d; }
 
 .sidebar-container a {
-  color: #151515; }
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold; }
 
 .sidebar-logo {
   padding: 10px 15px 10px 30px;
-  font-size: 20px;
   background-color: #000;
-  color: #fff; }
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold; }
 
 .sidebar-navigation {
   padding: 0;
