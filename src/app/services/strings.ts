@@ -13,7 +13,7 @@ class Strings {
     public readonly structure: string = 'structure';
     public readonly goTo: string = 'Go To';
     public readonly title: string = 'Age of Empires 2 info';
-    public readonly subTitle: string = 'Your complete Age of Empires 2 resource';
+    public readonly subTitle: string = 'Your complete Age of Empires 2 resource!';
 
     public getMenuItems(): Array<string> {
         let menuItems: Array<string> = [];

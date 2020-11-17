@@ -76,8 +76,6 @@ class App extends Component<{}, IState> {
             isLoading: false
         }));
 
-        console.log('ALL RESOLVED AND STORED IN STATE', this.state);
-
       }
     }).catch((err) => console.log(err));
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import strings from '../../services/strings';
 
 interface IHomeColumnProps {
     columnCategory: string;

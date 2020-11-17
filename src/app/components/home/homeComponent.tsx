@@ -7,7 +7,7 @@ const HomeComponent = () => {
     return(
         <div className="container">
             <h1>{strings.title}</h1>
-            <h3>{strings.subTitle}</h3>
+            <h4>{strings.subTitle}</h4>
             <div className="row">
                 {categories.map((value) => {
                     return(
