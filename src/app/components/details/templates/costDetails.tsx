@@ -1,5 +1,5 @@
 import React from 'react';
-import { ICost } from '../../models/cost';
+import { ICost } from '../../../models/cost';
 
 interface ICostProps {
     cost: ICost;

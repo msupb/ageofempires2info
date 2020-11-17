@@ -1,7 +1,7 @@
 import React from 'react';
-import { IUnit } from '../../models/unit';
+import { IUnit } from '../../../models/unit';
 import CostDetails from './costDetails';
-import LinkDetailsComponent from './linkDetailsComponent';
+import LinkDetailsComponent from '../linkDetail/linkDetailsComponent';
 
 interface IUnitProps {
     item: IUnit;

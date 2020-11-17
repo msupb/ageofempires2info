@@ -1,7 +1,7 @@
 import React from 'react';
-import { ITechnology } from '../../models/technology';
+import { ITechnology } from '../../../models/technology';
 import CostDetails from './costDetails';
-import LinkDetailsComponent from './linkDetailsComponent';
+import LinkDetailsComponent from '../linkDetail/linkDetailsComponent';
 
 interface ITechnologyProps {
     item: ITechnology;

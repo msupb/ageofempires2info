@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import utilities from '../../services/utilities';
-import HttpService from '../../services/http/httpService';
-import { IModelBase } from '../../models/modelBase';
-import strings from '../../services/strings';
-import ItemBuilder from '../../services/itemBuilder';
+import utilities from '../../../services/utilities';
+import HttpService from '../../../services/http/httpService';
+import { IModelBase } from '../../../models/modelBase';
+import strings from '../../../services/strings';
+import ItemBuilder from '../../../services/itemBuilder';
 import LinkDetail from './linkDetail';
 
 interface ILinkDetailsProps {
@@ -87,7 +87,7 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
     }, []);
 
     return(
-        <div className="link-card card">
+        <div data-testid="linkDetailComponent" className="link-card card">
             {(itemFetched && linkedItems) && <LinkDetail itemList={linkedItems.items as Array<IModelBase>}></LinkDetail>}
         </div>
     )

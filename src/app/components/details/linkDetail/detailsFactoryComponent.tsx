@@ -1,14 +1,14 @@
 import React from 'react';
-import { ICivilization } from '../../models/civilization';
-import { IModelBase } from '../../models/modelBase';
-import { IStructure } from '../../models/structure';
-import { ITechnology } from '../../models/technology';
-import { IUnit } from '../../models/unit';
-import Strings from '../../services/strings';
-import CivilizationDetails from './civilizationDetails';
-import StructureDetails from './structureDetails';
-import TechnologyDetails from './technologyDetails';
-import UnitDetails from './unitDetails';
+import { ICivilization } from '../../../models/civilization';
+import { IModelBase } from '../../../models/modelBase';
+import { IStructure } from '../../../models/structure';
+import { ITechnology } from '../../../models/technology';
+import { IUnit } from '../../../models/unit';
+import Strings from '../../../services/strings';
+import CivilizationDetails from '../templates/civilizationDetails';
+import StructureDetails from '../templates/structureDetails';
+import TechnologyDetails from '../templates/technologyDetails';
+import UnitDetails from '../templates/unitDetails';
 
 interface IDetailsProps<T> {
     item: T;
@@ -35,13 +35,14 @@ const DetailsFactoryComponent = <T extends IModelBase>(props: IDetailsProps<T>) 
 
     const item = setType(props);
 
+    // Typeguards for selecting the correct details template to be rendered
     const isCivilization = (item: any): item is ICivilization => {return item.category === Strings.civilizations}
     const isUnit = (item: any): item is IUnit => {return item.category === Strings.units}
     const isTechnology = (item: any): item is ITechnology => {return item.category === Strings.technologies}
     const isStructure = (item: any): item is IStructure => {return item.category === Strings.structures}
 
     return(
-        <section>
+        <section data-testid="detailsFactory">
             <div className="container">
                 {isUnit(item) && <UnitDetails item={item}></UnitDetails>}
                 {isCivilization(item) && <CivilizationDetails item={item}></CivilizationDetails>}

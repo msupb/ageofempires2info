@@ -1,6 +1,6 @@
 import React from 'react';
-import { ICivilization } from '../../models/civilization';
-import LinkDetailsComponent from './linkDetailsComponent';
+import { ICivilization } from '../../../models/civilization';
+import LinkDetailsComponent from '../linkDetail/linkDetailsComponent';
 
 interface ICivilizationProps {
     item: ICivilization;

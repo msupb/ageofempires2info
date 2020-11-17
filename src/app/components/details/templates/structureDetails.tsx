@@ -1,5 +1,5 @@
 import React from 'react';
-import { IStructure } from '../../models/structure';
+import { IStructure } from '../../../models/structure';
 import CostDetails from './costDetails';
 
 interface IStructureProps {

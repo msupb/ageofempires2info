@@ -8,7 +8,7 @@ interface IListProps<T> {
 
 const ListComponent = <T extends IModelBase>(props: IListProps<T>) => {
     return(
-        <div className="card">
+        <div data-testid="listComponent" className="card">
             <div className="container">
                 {props.itemList.map((value) => (<ListItem className='list-card card' key={value.localId} item={value}></ListItem>))}
             </div>   

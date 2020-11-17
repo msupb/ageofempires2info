@@ -13,7 +13,7 @@ interface IListItemProps<T> {
 
 const ListItem = <T extends IModelBase>(props: IListItemProps<T>) => {
     return(
-        <div className={props.className}>
+        <div data-testid="listItem" className={props.className}>
             <div className="container">
                 <h4><b>{props.item.name}</b></h4>               
                 <span className='button-span'>

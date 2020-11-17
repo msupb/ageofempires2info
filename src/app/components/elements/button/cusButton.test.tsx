@@ -8,5 +8,6 @@ const onTestClick = () => {
 
 test("CusButton will render without crashing", () => {
     const div = document.createElement('div');
-    ReactDom.render(<CusButton btnText="Test" btnType="button" onClickMethod={onTestClick}></CusButton>, div)
+    ReactDom.render(<CusButton btnText="Test" btnType="button" onClickMethod={onTestClick}></CusButton>, div);
+    ReactDom.unmountComponentAtNode(div);
 })

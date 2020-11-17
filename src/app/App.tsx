@@ -8,7 +8,7 @@ import ListComponent from './components/list/listComponent';
 import { ICivilization } from './models/civilization';
 import { ITechnology } from './models/technology';
 import ItemBuilder from './services/itemBuilder';
-import DetailsFactoryComponent from './components/details/detailsFactoryComponent';
+import DetailsFactoryComponent from './components/details/linkDetail/detailsFactoryComponent';
 import EmitDetailsContext from './services/contexts/emitDetailsContext';
 import { IModelBase } from './models/modelBase';
 import Strings from './services/strings';
