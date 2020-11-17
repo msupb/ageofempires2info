@@ -37,3 +37,10 @@ exports[`matches LinkDetail snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`matches LinkDetailsComponent snapshot 1`] = `
+<div
+  className="link-card card"
+  data-testid="linkDetailsComponent"
+/>
+`;

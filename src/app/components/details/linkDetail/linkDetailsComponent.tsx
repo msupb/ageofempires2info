@@ -87,7 +87,7 @@ const LinkDetailsComponent = <T extends IModelBase>(props: ILinkDetailsProps) =>
     }, []);
 
     return(
-        <div data-testid="linkDetailComponent" className="link-card card">
+        <div data-testid="linkDetailsComponent" className="link-card card">
             {(itemFetched && linkedItems) && <LinkDetail itemList={linkedItems.items as Array<IModelBase>}></LinkDetail>}
         </div>
     )
