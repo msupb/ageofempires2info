@@ -3,7 +3,7 @@ import { IStructure } from './models/structure';
 import { IUnit } from './models/unit';
 import HttpService from './services/http/httpService';
 import NavBar from './components/elements/nav/navBar';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import ListComponent from './components/list/listComponent';
 import { ICivilization } from './models/civilization';
 import { ITechnology } from './models/technology';
@@ -98,9 +98,9 @@ class App extends Component<{}, IState> {
       <Fragment>
         <div className="background-container">
         <Router>
-        <NavBar navClass="navbar navbar-expand-lg navbar-light bg-light" linkClass="nav-item nav-link" paths={Strings.getMenuItems()}></NavBar>
+        <NavBar navClass="" linkClass="nav-item nav-link" paths={Strings.getMenuItems()}></NavBar>
             <Switch>
-                {/* <Redirect from="/" to="/home"></Redirect> */}
+              <Redirect exact from="/" to="/home" />
                 <Route path="/home">
                   <HomeComponent></HomeComponent>
                 </Route>

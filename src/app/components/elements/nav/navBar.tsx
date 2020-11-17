@@ -10,15 +10,15 @@ interface INavBarProps {
 
 const NavBar = (props: INavBarProps) => {
 
-    const appStyle = {
+    const navStyle = {
         backgroundImage: `url(${process.env.PUBLIC_URL + '/images/image3.jpg'})`,
         backgroundSize: 'cover',
-      };
+    };
 
     return (
-        <div style={appStyle} className="sidebar-container">
+        <div style={navStyle} className="sidebar-container">
             <div className="sidebar-logo">
-                {Strings.sideBarText}
+                {Strings.title}
             </div>
             <ul data-testid="navul" className="sidebar-navigation">
                 {props.paths.map((path) => <Link key={path} className={props.linkClass} to={`/${path}`}>{path.toUpperCase()}</Link>)}

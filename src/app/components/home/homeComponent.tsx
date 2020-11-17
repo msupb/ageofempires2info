@@ -1,8 +1,21 @@
 import React from 'react';
+import strings from '../../services/strings';
+import HomeColumn from './homeColumn';
 
 const HomeComponent = () => {
+    const categories: Array<string> = strings.getCategories();
     return(
-        <h1>Home</h1>
+        <div className="container">
+            <h1>{strings.title}</h1>
+            <h3>{strings.subTitle}</h3>
+            <div className="row">
+                {categories.map((value) => {
+                    return(
+                        <HomeColumn columnCategory={value}></HomeColumn>
+                    )
+                })}
+            </div>
+        </div>
     )
 }
 

@@ -12,13 +12,20 @@ class Strings {
     public readonly technology: string = 'technology';
     public readonly structure: string = 'structure';
     public readonly goTo: string = 'Go To';
-    public readonly sideBarText: string = 'Age of Empires 2 info'
+    public readonly title: string = 'Age of Empires 2 info';
+    public readonly subTitle: string = 'Your complete Age of Empires 2 resource';
 
     public getMenuItems(): Array<string> {
         let menuItems: Array<string> = [];
         menuItems.push(this.home, this.civilizations, this.units, this.technologies, this.structures);
         
         return menuItems;
+    }
+
+    public getCategories(): Array<string> {
+        let categories: Array<string> = [];
+        categories.push(this.civilizations, this.units, this.technologies, this.structures);
+        return categories;
     }
 }
 
