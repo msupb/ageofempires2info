@@ -3,7 +3,8 @@
 @import '../app/components/list/listStyle.scss';
 @import '../app/components/elements/nav/navStyle.scss';
 @import '../app/components/errorBoundary/errorStyle.scss';
-// @import './mixins.scss';
+@import '../app/components/elements/button/cusButtonStyle.scss';
+//@import './mixins.scss';
 
 .container {
     width: 500 px!important;

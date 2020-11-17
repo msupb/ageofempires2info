@@ -2,6 +2,7 @@
 
 exports[`matches snapshot 1`] = `
 <button
+  className="cusButton"
   data-testid="cusButtonTest"
   onClick={[Function]}
   type="button"

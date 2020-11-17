@@ -8,7 +8,7 @@ interface IButtonProps {
 
 const CusButton = (props: IButtonProps) => {
     return (
-        <button data-testid="cusButtonTest" type={props.btnType} onClick={() => props.onClickMethod()}>{props.btnText}</button>
+        <button className="cusButton" data-testid="cusButtonTest" type={props.btnType} onClick={() => props.onClickMethod()}>{props.btnText}</button>
     )
 }
 

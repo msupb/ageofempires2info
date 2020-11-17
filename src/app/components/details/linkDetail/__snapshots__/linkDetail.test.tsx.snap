@@ -26,6 +26,7 @@ exports[`matches LinkDetail snapshot 1`] = `
         onClick={[Function]}
       >
         <button
+          className="cusButton"
           data-testid="cusButtonTest"
           onClick={[Function]}
           type="button"
