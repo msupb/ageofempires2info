@@ -19,7 +19,8 @@ h1 {
   float: left;
   width: 25%;
   padding: 10px;
-  height: 300px; }
+  height: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
 
 .row {
   margin-top: 50px; }
@@ -32,7 +33,7 @@ h1 {
 .start-column {
   height: 150px;
   width: 250px;
-  border-radius: 25px;
+  border-radius: 26px;
   margin-left: 20px; }
   .start-column h2 {
     color: #fff; }
@@ -53,15 +54,16 @@ h1 {
 
 .sidebar-container a {
   color: #fff;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold; }
 
 .sidebar-logo {
   padding: 10px 15px 10px 30px;
   background-color: #000;
   color: #fff;
-  font-size: 24px;
-  font-weight: bold; }
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center; }
 
 .sidebar-navigation {
   padding: 0;

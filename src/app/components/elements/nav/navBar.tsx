@@ -11,7 +11,7 @@ interface INavBarProps {
 const NavBar = (props: INavBarProps) => {
 
     const navStyle = {
-        backgroundImage: `url(${process.env.PUBLIC_URL + '/images/image3.jpg'})`,
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/images/image8.jpg'})`,
         backgroundSize: 'cover',
     };
 
