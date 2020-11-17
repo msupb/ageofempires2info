@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="sidebar-container"
+  style={
+    Object {
+      "backgroundImage": "url(/images/image3.jpg)",
+      "backgroundSize": "cover",
+    }
+  }
+>
+  <div
+    className="sidebar-logo"
+  >
+    Age of Empires 2 info
+  </div>
+  <ul
+    className="sidebar-navigation"
+    data-testid="navul"
+  >
+    <a
+      className="test"
+      href="/test"
+      onClick={[Function]}
+    >
+      TEST
+    </a>
+  </ul>
+</div>
+`;

@@ -20,7 +20,7 @@ const NavBar = (props: INavBarProps) => {
             <div className="sidebar-logo">
                 {Strings.sideBarText}
             </div>
-            <ul className="sidebar-navigation">
+            <ul data-testid="navul" className="sidebar-navigation">
                 {props.paths.map((path) => <Link key={path} className={props.linkClass} to={`/${path}`}>{path.toUpperCase()}</Link>)}
             </ul>
         </div>

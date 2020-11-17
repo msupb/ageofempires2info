@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches LinkDetail snapshot 1`] = `
+<div
+  data-testid="linkDetail"
+>
+  <div
+    className="container"
+  >
+    <h6>
+      <b>
+        testName
+      </b>
+    </h6>
+    <div
+      className="details-wrap"
+    >
+      <p
+        className="link-details"
+      >
+        Age: 
+        testAge
+      </p>
+      <a
+        href="/details/testCategory/0"
+        onClick={[Function]}
+      >
+        <button
+          data-testid="cusButtonTest"
+          onClick={[Function]}
+          type="button"
+        >
+          Go To
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;

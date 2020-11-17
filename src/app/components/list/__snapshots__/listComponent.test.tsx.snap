@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches ListComponent snapshot 1`] = `
+<div
+  className="card"
+  data-testid="listComponent"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="list-card card"
+      data-testid="listItem"
+    >
+      <div
+        className="container"
+      >
+        <h4>
+          <b>
+            testName
+          </b>
+        </h4>
+        <span
+          className="button-span"
+        >
+          <a
+            href="/details/testCategory/0"
+            onClick={[Function]}
+          >
+            <button
+              data-testid="cusButtonTest"
+              onClick={[Function]}
+              type="button"
+            >
+              Details
+            </button>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`matches ListItem snapshot 1`] = `
+<div
+  className="list-card card"
+  data-testid="listItem"
+>
+  <div
+    className="container"
+  >
+    <h4>
+      <b>
+        testName
+      </b>
+    </h4>
+    <span
+      className="button-span"
+    >
+      <a
+        href="/details/testCategory/0"
+        onClick={[Function]}
+      >
+        <button
+          data-testid="cusButtonTest"
+          onClick={[Function]}
+          type="button"
+        >
+          Details
+        </button>
+      </a>
+    </span>
+  </div>
+</div>
+`;
