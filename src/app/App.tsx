@@ -15,6 +15,7 @@ import Strings from './services/strings';
 import HomeComponent from './components/home/homeComponent';
 import ListBoundary from './components/errorBoundary/listBoundary';
 import DetailsBoundary from './components/errorBoundary/detailsBoundary';
+import HomeBoundary from './components/errorBoundary/homeBoundary';
 
 interface IState {
   civilizations: Array<ICivilization>;
@@ -100,7 +101,11 @@ class App extends Component<{}, IState> {
             <Switch>
               <Redirect exact from="/" to="/home" />
                 <Route path="/home">
-                  <HomeComponent></HomeComponent>
+                  <div className="container">
+                    <HomeBoundary>
+                      <HomeComponent></HomeComponent>  
+                    </HomeBoundary>  
+                  </div>
                 </Route>
                 <EmitDetailsContext.Provider value={{clickMethod: this.onDetailsClick}}>
                   <Route path="/details/:category/:id">
