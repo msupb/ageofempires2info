@@ -15,7 +15,7 @@ const ListItem = <T extends IModelBase>(props: IListItemProps<T>) => {
     return(
         <div data-testid="listItem" className={props.className}>
             <div className="container">
-                <h4><b>{props.item.name}</b></h4>               
+                <h4 className="list-item-heading"><b>{props.item.name}</b></h4>               
                 <span className='button-span'>
                     <Link to={`/details/${props.item.category}/${props.item.id}`}>
                         <EmitDetailsContext.Consumer>

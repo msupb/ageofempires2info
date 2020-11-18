@@ -15,15 +15,15 @@ const TechnologyDetails = (props: ITechnologyProps) => {
     return(
         <div className="card">
             <div className="container">
-                {props.item.name && <h4><b>{props.item.name}</b></h4>}
-                {props.item.description && <p>Description: {props.item.description}</p>}
-                {props.item.expansion && <p>Expansion: {props.item.expansion}</p>}
-                {props.item.age && <p>Age: {props.item.age}</p>}
-                {props.item.develops_in && <label>Develops in:</label>}
+                {props.item.name && <h4 className="details-heading"><b>{props.item.name}</b></h4>}
+                {props.item.description && <p><b>Description:</b> {props.item.description}</p>}
+                {props.item.expansion && <p><b>Expansion:</b> {props.item.expansion}</p>}
+                {props.item.age && <p><b>Age:</b> {props.item.age}</p>}
+                {props.item.develops_in && <label><b>Develops in:</b></label>}
                 {props.item.develops_in && <LinkDetailsComponent links={[props.item.develops_in]}></LinkDetailsComponent>}
                 {props.item.cost && <CostDetails cost={props.item.cost}></CostDetails>}
-                {props.item.build_time && <p>Build time: {props.item.build_time}</p>} 
-                {props.item.applies_to && <label>Applies to:</label>}
+                {props.item.build_time && <p><b>Build time:</b> {props.item.build_time}</p>} 
+                {props.item.applies_to && <label><b>Applies to:</b></label>}
                 {props.item.applies_to && <LinkDetailsComponent links={props.item.applies_to}></LinkDetailsComponent>}
                 {(filtered.length > 0) && props.item.applies_to.map((x) => {return (<div><ul>
                     <li>{x}</li>

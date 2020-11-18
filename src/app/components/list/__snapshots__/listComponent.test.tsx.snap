@@ -15,7 +15,9 @@ exports[`matches ListComponent snapshot 1`] = `
       <div
         className="container"
       >
-        <h4>
+        <h4
+          className="list-item-heading"
+        >
           <b>
             testName
           </b>
@@ -51,7 +53,9 @@ exports[`matches ListItem snapshot 1`] = `
   <div
     className="container"
   >
-    <h4>
+    <h4
+      className="list-item-heading"
+    >
       <b>
         testName
       </b>

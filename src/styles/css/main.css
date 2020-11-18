@@ -6,11 +6,17 @@
   margin: 10px; }
 
 .link-card {
-  box-shadow: none !important; }
+  box-shadow: none !important;
+  width: 30%;
+  margin-bottom: 20px !important; }
+
+.details-heading {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #949497; }
 
 h1 {
   padding-bottom: 10px;
-  border-bottom: 1px solid #000; }
+  border-bottom: 1px solid #949497; }
 
 * {
   box-sizing: border-box; }
@@ -40,6 +46,10 @@ h1 {
 
 .list-card {
   box-shadow: none !important; }
+
+.list-item-heading {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #949497; }
 
 .sidebar-container {
   position: fixed;
@@ -112,6 +122,9 @@ h1 {
 
 html {
   background-color: #fafafa; }
+
+ul {
+  list-style-type: none; }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
