@@ -5,7 +5,7 @@ exports[`matches snapshot 1`] = `
   className="sidebar-container"
   style={
     Object {
-      "backgroundImage": "url(/images/image3.jpg)",
+      "backgroundImage": "url(/images/image8.jpg)",
       "backgroundSize": "cover",
     }
   }

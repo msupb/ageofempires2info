@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
 import { IModelBase } from '../../../models/modelBase';
 import EmitDetailsContext from '../../../services/contexts/emitDetailsContext';
 import strings from '../../../services/strings';
@@ -12,7 +13,11 @@ interface ILinkDetailProps {
 const LinkDetail = (props: ILinkDetailProps) => {
     return (
         <div data-testid="linkDetail">
-            {props.itemList && props.itemList.map((item: IModelBase) => {
+            {props.itemList.length < 1 
+            ? 
+            <div className="sweet-loading"><ClipLoader loading={props.itemList.length < 1}></ClipLoader></div> 
+            : 
+            props.itemList && props.itemList.map((item: IModelBase) => {
                 return(
                     <div key={item.localId} className="container">
                         <h6><b>{item.name}</b></h6>
