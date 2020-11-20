@@ -23,7 +23,7 @@ class ItemBuilder {
         return entries;
     }
 
-    private CreateItem<T extends IModelBase>(item: T, category: string): IModelBase {
+    private CreateItem<T extends IModelBase>(item: T, category: string): T {
         const key = category + item.id + item.name?.replace(' ', '');
         const add = {localId: key, category: category};
 
