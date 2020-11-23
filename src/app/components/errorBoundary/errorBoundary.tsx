@@ -6,19 +6,28 @@ interface IProps {
 
 interface IState {
   hasError: boolean;
+  error: any;
+  errorInfo: any;
 }
 
 abstract class ErrorBoundary extends Component<IProps, IState> {
   public state: IState = {
-    hasError: false
+    hasError: false,
+    error: null,
+    errorInfo: null
   };
 
-  protected static getDerivedStateFromError(_: Error): IState {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true };
-  }
+  // protected static getDerivedStateFromError(error: Error): IState {
+  //   // Update state so the next render will show the fallback UI.
+  //   return { error: error, hasError: true };
+  // }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    this.setState({
+      hasError: true,
+      error: error,
+      errorInfo: errorInfo
+    })
     console.error("Uncaught error:", error, errorInfo);
   }
 
