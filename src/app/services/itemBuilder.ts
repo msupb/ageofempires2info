@@ -34,4 +34,4 @@ class ItemBuilder {
 
 }
 
-export default new ItemBuilder();
+export default new ItemBuilder(); 
