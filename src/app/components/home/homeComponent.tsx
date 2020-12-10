@@ -11,7 +11,7 @@ const HomeComponent = () => {
             <div className="row">
                 {categories.map((value) => {
                     return(
-                        <HomeColumn columnCategory={value}></HomeColumn>
+                        <HomeColumn key={value} columnCategory={value}></HomeColumn>
                     )
                 })}
             </div>

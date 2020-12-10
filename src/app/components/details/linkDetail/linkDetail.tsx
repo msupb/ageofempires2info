@@ -25,7 +25,7 @@ const LinkDetail = (props: ILinkDetailProps) => {
                             <p className="link-details">Age: {item.age}</p>
                             <Link to={`/details/${item.category}/${item.id}`}>
                             <EmitDetailsContext.Consumer>
-                                {(value) => <CusButton btnType={'button'} btnText={strings.goTo} onClickMethod={() => value?.clickMethod(item)}></CusButton> }
+                                {(value) => <CusButton key={item.localId} btnType={'button'} btnText={strings.goTo} onClickMethod={() => value?.clickMethod(item)}></CusButton> }
                             </EmitDetailsContext.Consumer>
                             </Link>
                         </div>
