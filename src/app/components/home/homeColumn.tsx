@@ -11,7 +11,7 @@ const HomeColumn = (props: IHomeColumnProps) => {
         backgroundSize: 'cover',
     };
     return(
-        <Link to={`/${props.columnCategory}`}>
+        <Link className="home-link" to={`/${props.columnCategory}`}>
             <div style={columnStyle} className="column start-column">
                 <h2>{props.columnCategory.toUpperCase()}</h2>
             </div>

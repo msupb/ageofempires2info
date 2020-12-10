@@ -44,6 +44,9 @@ h1 {
   .start-column h2 {
     color: #fff; }
 
+.home-link {
+  padding-bottom: 10px; }
+
 .list-card {
   box-shadow: none !important; }
 
@@ -132,3 +135,7 @@ ul {
 
 button {
   margin: 10px; }
+
+.content-container {
+  margin: auto;
+  max-width: 600px; }

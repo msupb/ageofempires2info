@@ -101,7 +101,7 @@ class App extends Component<{}, IState> {
             <Switch>
               <Redirect exact from="/" to="/home" />
                 <Route path="/home">
-                  <div className="container">
+                  <div className="container content-container">
                     <HomeBoundary>
                       <HomeComponent></HomeComponent>  
                     </HomeBoundary>  
@@ -109,35 +109,35 @@ class App extends Component<{}, IState> {
                 </Route>
                 <EmitDetailsContext.Provider value={{clickMethod: this.onDetailsClick}}>
                   <Route path="/details/:category/:id">
-                    <div className="container">
+                    <div className="container content-container">
                       <DetailsBoundary>
                         {this.state.detailsItem && <DetailsFactoryComponent item={this.state.detailsItem}></DetailsFactoryComponent>}
                       </DetailsBoundary>            
                     </div>
                   </Route>
                   <Route path="/civilizations">
-                    <div className="container">
+                    <div className="container content-container">
                       <ListBoundary>
                         <ListComponent itemList={this.state.civilizations}></ListComponent>
                       </ListBoundary>
                      </div>   
                   </Route>
                    <Route path="/units">
-                    <div className="container">
+                    <div className="container content-container">
                       <ListBoundary>
                         <ListComponent itemList={this.state.units}></ListComponent>
                       </ListBoundary>
                      </div>     
                    </Route>
                    <Route path="/technologies">
-                    <div className="container">
+                    <div className="container content-container">
                       <ListBoundary>
                         <ListComponent itemList={this.state.technologies}></ListComponent>
                       </ListBoundary>
                      </div>  
                    </Route>
                   <Route path="/structures">
-                     <div className="container">
+                     <div className="container content-container">
                        <ListBoundary>
                         <ListComponent itemList={this.state.structures}></ListComponent>
                        </ListBoundary>
