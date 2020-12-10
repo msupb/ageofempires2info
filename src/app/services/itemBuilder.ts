@@ -2,11 +2,11 @@ import { IModelBase } from '../models/modelBase';
 
 class ItemBuilder {
 
-    public GetList<T extends IModelBase>(list: Array<T>, category: string): Array<T> {
+    public GetList<T>(list: Array<T>, category: string): Array<T> {
         return this.CreateList(list, category);
     }
 
-    public GetItem<T extends IModelBase>(item: T, category: string): IModelBase {
+    public GetItem<T>(item: T, category: string): IModelBase {
         return this.CreateItem(item, category);
     }
 
