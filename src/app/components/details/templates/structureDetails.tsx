@@ -23,8 +23,8 @@ const StructureDetails = (props: IStructureProps) => {
                 {props.item.relaod_time && <p><b>Reload time:</b> {props.item.relaod_time}</p>}
                 {props.item.attack && <p><b>Attack:</b> {props.item.attack}</p>}
                 {props.item.special && <label><b>Special:</b></label>}
-                {props.item.special && props.item.special.map((x) => {return (<div><ul>
-                    <li>{x}</li>
+                {props.item.special && props.item.special.map((x, v) => {return (<div key={v}><ul>
+                    <li key={v}>{x}</li>
                 </ul></div>)})}   
             </div>
         </div>

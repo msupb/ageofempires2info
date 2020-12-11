@@ -19,10 +19,10 @@ const CivilizationDetails = (props: ICivilizationProps) => {
                 {(props.item.unique_tech && props.item.unique_tech.length > 0) && <label><b>Unique tech:</b></label>}
                 {(props.item.unique_tech && props.item.unique_tech.length > 0) && <LinkDetailsComponent links={props.item.unique_tech}></LinkDetailsComponent>}
                 {props.item.civilization_bonus && <label><b>Civilization bonus:</b></label>}
-                {props.item.civilization_bonus && props.item.civilization_bonus.map((x) => {return (<div><ul>
-                    <li>{x}</li>
-                </ul></div>)})} 
-            </div>   
+                {props.item.civilization_bonus && props.item.civilization_bonus.map((x, v) => {return (<div key={v}><ul>
+                    <li key={v}>{x}</li>
+                </ul></div>)})}
+            </div>
         </div>
     )
 }

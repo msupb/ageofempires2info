@@ -25,8 +25,8 @@ const TechnologyDetails = (props: ITechnologyProps) => {
                 {props.item.build_time && <p><b>Build time:</b> {props.item.build_time}</p>} 
                 {props.item.applies_to && <label><b>Applies to:</b></label>}
                 {props.item.applies_to && <LinkDetailsComponent links={props.item.applies_to}></LinkDetailsComponent>}
-                {(filtered.length > 0) && props.item.applies_to.map((x) => {return (<div><ul>
-                    <li>{x}</li>
+                {(filtered.length > 0) && props.item.applies_to.map((x, v) => {return (<div key={v}><ul>
+                    <li key={v}>{x}</li>
                 </ul></div>)})}
             </div>
         </div>

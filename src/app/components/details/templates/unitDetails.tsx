@@ -29,12 +29,12 @@ const UnitDetails = (props: IUnitProps) => {
                 {props.item.attack && <p><b>Attack:</b> {props.item.attack}</p>}
                 {props.item.armor && <p><b>Armor:</b> {props.item.armor}</p>}
                 {props.item.attack_bonus && <label><b>Attack bonus</b></label>}
-                {props.item.attack_bonus && props.item.attack_bonus.map((x) => {return (<div><ul>
-                    <li>{x}</li>
+                {props.item.attack_bonus && props.item.attack_bonus.map((x, v) => {return (<div key={v}><ul>
+                    <li key={v}>{x}</li>
                 </ul></div>)})}
                 {props.item.armor_bonus && <label>Armor bonus</label>}
-                {props.item.armor_bonus && props.item.armor_bonus.map((x) => {return (<div><ul>
-                    <li>{x}</li>
+                {props.item.armor_bonus && props.item.armor_bonus.map((x, v) => {return (<div key={v}><ul>
+                    <li key={v}>{x}</li>
                 </ul></div>)})}
                 {props.item.search_radius && <p><b>Search radius:</b> {props.item.search_radius}</p>}
                 {props.item.accuracy && <p><b>Accuracy:</b> {props.item.accuracy}</p>}
